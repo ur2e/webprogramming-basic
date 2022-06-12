@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>숙명수강신청시스템</title>
+    <link rel="stylesheet" href="./css/top.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <header>
+        <div style="display:flex"><img class="top-img" src="./image/top-logo.JPG">
+            <h4 align="left"><a class="back-main" href=main.html><span class="user-name"
+                        style="color:white; font-size: 18px;">숙명수강신청시스템</span></a></h4>
+        </div>
+        <nav>
+            <span id="input_user_name" class="user-name" style="color:white"></span><span>님 접속을 환영합니다.</span> <span> |
+            </span>
+            <a href="final_enroll.html"><span>수강신청결과조회</span></a> <span> | </span>
+            <a href="update.html"><span>비밀번호변경</span></a> <span> | </span>
+            <span id="log"></span>
+        </nav>
+    </header>
+    <div id="header"></div>
+    <div align="outer-box" class="outer-box">
+        <div class="top-box">수강 조회</div>
+    </div>
+    <div class="content-box" id="enroll">
+        <div class="content-title">수강신청결과조회</div>
+        <hr>
+
+        <table id="final_table" align="center" width="90%" class="enroll_table">
+            <tr>
+                <td class="enroll_h"><b>과목번호</b></td>
+                <td class="enroll_h"><b>과목명</b></td>
+                <td class="enroll_h"><b>분반</b></td>
+                <td class="enroll_h"><b>담당 교수</b></td>
+                <td class="enroll_h"><b>학점</b></td>
+                <td class="enroll_h"><b>강의 시간</b></td>
+                <td class="enroll_h"><b>해당 년도</b></td>
+                <td class="enroll_h"><b>해당 학기</b></td>
+            </tr>
+            <tbody id="final_table_body">
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<!-- 결과조회테이블 -->
+<script>
+    if (sessionStorage.getItem('course')) {
+        var html = sessionStorage.getItem('course');
+
+        var tr = html.split('</tr>') // 하나의 열마다 처리
+        var res = '';
+        for (var str of tr) {
+            var start_idx = str.indexOf('<td class="enroll_content"><button');
+        
+            str = str.substring(0, start_idx)
+            if(str.indexOf('</button></td>') > -1){
+                str = str.replace('</button></td>', ' ') + ' </tr>';
+            }
+
+            res += str
+            res = res.slice(0, -5);
+        }
+        if (res == "undefined") {
+            document.getElementById("final_table_body").innerHTML = `<tr>
+                                                                    <td class="enroll_content" colspan=10>
+                                                                        <img src="./image/warning.jfif" height="15px"> 해당 테이블에 데이터가 없습니다.
+                                                                    </td>
+                                                                    </tr>`;
+        } else {
+           
+            document.getElementById("final_table_body").innerHTML = res;
+        }
+    }
+</script>
+
+
+<!-- 수강신청결과조회 열리는 시간 체크 -->
+<script>
+    const open_date = new Date('2022-06-10 11:59:00');
+    let today = getToday();
+    if (open_date < today) {} else {
+        alert("수강신청 결과조회 기간이 아닙니다.\n조회 기간: 2022년 6월 13일 13시 이후")
+        location.href = "main.html";
+    }
+
+    function getToday() {
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+        var day = ('0' + today.getDate()).slice(-2);
+        var today = new Date();
+        var hours = ('0' + today.getHours()).slice(-2);
+        var minutes = ('0' + today.getMinutes()).slice(-2);
+        var seconds = ('0' + today.getSeconds()).slice(-2);
+
+        var dateString = year + '-' + month + '-' + day + " ";
+        var timeString = hours + ':' + minutes + ':' + seconds;
+        var str2Date = new Date(dateString + timeString);
+        return str2Date;
+    }
+</script>
+
+<!-- top.html 위한 js -->
+<script>
+    var session_id = sessionStorage.getItem("id");
+
+    var log;
+    if (session_id == null)
+        log = "<a href=login.html>로그인</a>";
+    else log = "<a href=logout.html>로그아웃</a>";
+    document.getElementById("log").innerHTML = log;
+
+    var name;
+    if (sessionStorage.getItem("name")) {
+        document.getElementById("input_user_name").innerHTML = name;
+    } else {
+        name = prompt("이용자님의 이름은 무엇인가요?");
+        sessionStorage.setItem("name", name);
+        document.getElementById("input_user_name").innerHTML = name;
+    }
+</script>
+
+
+</html>

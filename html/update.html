@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>사용자 정보 수정</title>
+    <link rel="stylesheet" href="./css/top.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <header>
+        <div style="display:flex"><img class="top-img" src="./image/top-logo.JPG"> 
+            <h4 align="left"><a class="back-main" href=main.html><span class="user-name" style="color:white; font-size: 18px;">숙명수강신청시스템</span></a></h4></div>
+        <nav>
+          <span id="input_user_name" class="user-name" style="color:white"></span><span>님 접속을 환영합니다.</span> <span> | </span>
+          <a href="final_enroll.html"><span>수강신청결과조회</span></a> <span> | </span>
+          <a href="update.html"><span>비밀번호변경</span></a> <span> | </span>
+          <span id="log"></span>
+        </nav>
+    </header>
+    <br><br><br>
+    <div class="outer">
+        <div class="update-box" align="center"> <span class="top-tile">비밀번호 변경</span>
+            <hr width="70%" align="center" sytle="background-color: #487bb9;">
+            <br>
+            <form>
+                <table class="update-table" width="70%" align="center" border>
+                    <tr>
+                        <td class="update-title">아이디</td>
+                        <td>
+                            <div id="user_id" class="update-id" name="userID"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="update-title">패스워드</td>
+                        <td>
+                            <div><input id="password" class="update-pwd" type="password" name="userPassword"></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+                <div align="center">
+                    <button id="update-button" class="update-btn">수정</button>
+                    <button id="cancle-button" class="cancel-btn">취소</button>
+                </div>
+
+        </div>
+    </div>
+</body>
+
+<!-- 비밀번호 바꿔서 sessionStroge에 저장 -->
+<script>
+
+    const user_id = sessionStorage.getItem("id");
+    document.getElementById("user_id").innerHTML=user_id;
+
+    const update = document.getElementById("update-button");
+    const cancle = document.getElementById("cancle-button");
+
+    update.onclick = function () {
+        const pwd = document.getElementById("password").value;
+
+        sessionStorage.setItem("password", pwd);
+        location.href = "index.html";
+    };
+
+    cancle.addEventListener('click', () => {
+        console.log("클릭");
+        window.location.href = "main.html";
+    });
+
+
+</script>
+
+
+<!-- top.html -->
+<script>
+    var session_id = '<%=(String)session.getAttribute("id")%>';
+    var log;
+    if (session_id == null)
+        log = "<a href=login.html>로그인</a>";
+    else log = "<a href=logout.html>로그아웃</a>";
+    document.getElementById("log").innerHTML = log;
+
+    var name;
+    if (name == 'null') {
+        name = prompt("이용자님의 이름은 무엇인가요?");
+        document.getElementById("input_user_name").innerHTML = name;
+    } else {
+        document.getElementById("input_user_name").innerHTML = name;
+    }
+</script>
+
+</html>

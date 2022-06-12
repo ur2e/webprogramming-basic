@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>숙명수강신청시스템</title>
+    <link rel="stylesheet" href="./css/top.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <header>
+        <div style="display:flex"><img class="top-img" src="./image/top-logo.JPG">
+            <h4 align="left"><a class="back-main" href=main.html><span class="user-name"
+                        style="color:white; font-size: 18px;">숙명수강신청시스템</span></a></h4>
+        </div>
+        <nav>
+            <span id="input_user_name" class="user-name" style="color:white"></span><span>님 접속을 환영합니다.</span> <span> |
+            </span>
+            <a href="final_enroll.html"><span>수강신청결과조회</span></a> <span> | </span>
+            <a href="update.html"><span>비밀번호변경</span></a> <span> | </span>
+            <span id="log"></span>
+        </nav>
+    </header>
+    <div id="header"></div>
+    <div align="outer-box" class="outer-box">
+        <div class="top-box">학부 수강신청</div>
+    </div>
+
+    <div class="content-box" id="student_info">
+        <div class="content-title">학생기본정보</div>
+        <hr style="background-color: #487bb9;">
+
+        <table align="center" class="student-table">
+            <tbody>
+                <tr>
+                    <td class="student-title">
+                        학번:
+                    </td>
+                    <td>
+                        <div class="student-content">181111</div>
+                    </td>
+                    <td class="student-title">
+                        성명:
+                    </td>
+                    <td>
+                        <div class="student-content">지유리</div>
+                    </td>
+                    <td class="student-title">
+                        전공:
+                    </td>
+                    <td>
+                        <div class="student-content">소프트웨어융합</div>
+                    </td>
+                    <td class="student-title">
+                        학년:
+                    </td>
+                    <td>
+                        <div class="student-content">4학년</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="student-title">
+                        직전학기 이수학점:
+                    </td>
+                    <td>
+                        <div class="student-content">18</div>
+                    </td>
+                    <td class="student-title">
+                        직전학기 성적:
+                    </td>
+                    <td>
+                        <div class="student-content">4.3</div>
+                    </td>
+                    <td class="student-title">
+                        수강가능학점:
+                    </td>
+                    <td>
+                        <div class="student-content">15</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- 수강신청조회 -->
+    <div class="content-box" id="enroll">
+        <div class="content-title">수강신청내역</div>
+
+        <hr style="background-color: #487bb9;">
+
+        <table align="center" id="enroll_table" width="90%" class="enroll_table">
+            <thead>
+                <tr>
+                    <td class="enroll_h"><b>과목번호</b></td>
+                    <td class="enroll_h"><b>과목명</b></td>
+                    <td class="enroll_h"><b>분반</b></td>
+                    <td class="enroll_h"><b>담당 교수</b></td>
+                    <td class="enroll_h"><b>학점</b></td>
+                    <td class="enroll_h"><b>강의 시간</b></td>
+                    <td class="enroll_h"><b>해당 년도</b></td>
+                    <td class="enroll_h"><b>해당 학기</b></td>
+                    <td class="enroll_h"><b>수강신청</b></td>
+                </tr>
+            </thead>
+            <tbody id="enroll_table_body">
+            </tbody>
+
+            <tfoot>
+                <table align="center" class="student-table" style="margin-top: 15px;">
+                    <td  class="student-title">총 신청 과목 수: </td>
+                    <td>
+                        <div id="total_count" class="student-content">0</div>
+                    </td>
+                    <td class="student-title">총 신청 학점: </td>
+                    <td>
+                        <div id="total_credit" class="student-content">0</div>
+                    </td>
+                </table>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <!-- 개설과목조회 -->
+    <div class="content-box" id="course">
+        <div class="content-title">개설과목조회</div>
+        <hr>
+        <table align="center" id="course_table" width="90%" class="enroll_table">
+            <thead>
+                <tr>
+                    <td class="enroll_h"><b>과목번호</b></td>
+                    <td class="enroll_h"><b>과목명</b></td>
+                    <td class="enroll_h"><b>분반</b></td>
+                    <td class="enroll_h"><b>담당 교수</b></td>
+                    <td class="enroll_h"><b>학점</b></td>
+                    <td class="enroll_h"><b>강의 시간</b></td>
+                    <td class="enroll_h"><b>해당 년도</b></td>
+                    <td class="enroll_h"><b>해당 학기</b></td>
+                    <td class="enroll_h"><b>수강신청</b></td>
+                </tr>
+            </thead>
+            <tbody id="course_table_body">
+                <tr>
+                    <td class="enroll_content">21003994</td>
+                    <td class="enroll_content">운영체제</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content">김주균</td>
+                    <td class="enroll_content">3</td>
+                    <td class="enroll_content">화목 15:00-16:15</td>
+                    <td class="enroll_content">2022</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content"><button id="insert-btn-1" type="button" class="insert-btn-1"
+                            onClick="update_func(this)">신청</button></td>
+                </tr>
+
+                <tr>
+                    <td class="enroll_content">21001083</td>
+                    <td class="enroll_content">경영정보시스템</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content">한은정</td>
+                    <td class="enroll_content">3</td>
+                    <td class="enroll_content">월수 15:00-16:15</td>
+                    <td class="enroll_content">2022</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content"><button id="insert-btn-2" type="button" class="insert-btn-2"
+                            onClick="update_func(this)">신청</button></td>
+                </tr>
+
+                <tr>
+                    <td class="enroll_content">21003490</td>
+                    <td class="enroll_content">웹프로그래밍첫걸음</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content">최자령</td>
+                    <td class="enroll_content">3</td>
+                    <td class="enroll_content">월 10:00-12:50</td>
+                    <td class="enroll_content">2022</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content"><button id="insert-btn-3" type="button" class="insert-btn-3"
+                            onClick="update_func(this)">신청</button></td>
+                </tr>
+
+                <tr>
+                    <td class="enroll_content">21003758</td>
+                    <td class="enroll_content">시스템종합설계</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content">박숙영</td>
+                    <td class="enroll_content">3</td>
+                    <td class="enroll_content">화목 10:00-12:50</td>
+                    <td class="enroll_content">2022</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content"><button id="insert-btn-4" type="button" class="insert-btn-4"
+                            onClick="update_func(this)">신청</button></td>
+                </tr>
+
+                <tr>
+                    <td class="enroll_content">21002904</td>
+                    <td class="enroll_content">데이터사이언스개론</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content">박동철</td>
+                    <td class="enroll_content">3</td>
+                    <td class="enroll_content">화목 16:30-17:45</td>
+                    <td class="enroll_content">2022</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content"><button id="insert-btn-5" type="button" class="insert-btn-5"
+                            onClick="update_func(this)">신청</button></td>
+                </tr>
+
+                <tr>
+                    <td class="enroll_content">21000550</td>
+                    <td class="enroll_content">인공지능</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content">채희준</td>
+                    <td class="enroll_content">3</td>
+                    <td class="enroll_content">화목 13:30-14:45</td>
+                    <td class="enroll_content">2022</td>
+                    <td class="enroll_content">1</td>
+                    <td class="enroll_content"><button id="insert-btn-6" type="button" class="insert-btn-6"
+                            onClick="update_func(this)">신청</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div align="center"><button onclick="openPopup()"> 수강신청 가이드 </button></div>
+</body>
+
+<!-- popup -->
+<script>
+    function openPopup(){
+    var options = 'top=10, left=10, width=1300, height=800, status=no, menubar=no, toolbar=no, resizable=no';
+    window.open("info.html", "수강신청가이드", options);
+}
+</script>
+
+<!-- insert 위한 js -->
+<script>
+    window.onload = function() {
+        if(sessionStorage.getItem('course')){
+            var temp_course = sessionStorage.getItem('spare_course');
+            document.getElementById("course_table_body").innerHTML = temp_course;
+        }
+
+        var temp_eroll = sessionStorage.getItem('course');
+        document.getElementById("enroll_table_body").innerHTML = temp_eroll;
+
+        if(sessionStorage.getItem('spare_course')){
+            var temp_course = sessionStorage.getItem('spare_course');
+            document.getElementById("course_table_body").innerHTML = temp_course;
+        }
+    };
+    const insert1_btn = document.getElementById("insert-btn-1");
+    const insert2_btn = document.getElementById("insert-btn-2");
+    const insert3_btn = document.getElementById("insert-btn-3");
+
+    var course1 =
+        `<tr id='1'>
+                <td class="enroll_content">21003994</td>
+                <td class="enroll_content">운영체제</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">김주균</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">화목 15:00-16:15</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="delete-btn-1" type="button" class="delete-btn" onClick="delete_func(this)">취소</button></td></tr>`;
+    var course2 =
+        `<tr id='2'>
+                <td class="enroll_content">21001083</td>
+                <td class="enroll_content">경영정보시스템</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">한은정</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">월수 15:00-16:15</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td> 
+                <td class="enroll_content"><button id="delete-btn-2" type="button" class="delete-btn" onClick="delete_func(this)">취소</button></td></tr>`;
+    var course3 =
+        `<tr id='3'>
+                <td class="enroll_content">21003490</td>
+                <td class="enroll_content">웹프로그래밍첫걸음</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">최자령</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">월 10:00-12:50</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="delete-btn-3" type="button" class="delete-btn" onClick="delete_func(this)">취소</button></td></tr>`;
+    var course4 =
+        `<tr id='4'>
+                <td class="enroll_content">21003758</td>
+                <td class="enroll_content">시스템종합설계</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">박숙영</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">화목 10:00-12:50</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="delete-btn-4" type="button" class="delete-btn" onClick="delete_func(this)">취소</button></td></tr>`;
+    var course5 =
+        `<tr id='5'>
+                <td class="enroll_content">21002904</td>
+                <td class="enroll_content">데이터사이언스개론</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">박동철</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">화목 16:30-17:45</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="delete-btn-5" type="button" class="delete-btn" onClick="delete_func(this)">취소</button></td></tr>`;
+    var course6 =
+        `<tr id='6'>
+                <td class="enroll_content">21000550</td>
+                <td class="enroll_content">인공지능</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">채희준</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">화목 13:30-14:45</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="delete-btn-6" type="button" class="delete-btn" onClick="delete_func(this)">취소</button></td></tr>`;
+
+    var insert_course1 =
+        `<tr id='1'>
+                <td class="enroll_content">21003994</td>
+                <td class="enroll_content">운영체제</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">김주균</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">화목 15:00-16:15</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="insert-btn-1" type="button" class="insert-btn" onClick="update_func(this)">신청</button></td></tr>`;
+    var insert_course2 =
+        `<tr id='2'>
+                <td class="enroll_content">21001083</td>
+                <td class="enroll_content">경영정보시스템</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">한은정</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">월수 15:00-16:15</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td> 
+                <td class="enroll_content"><button id="insert-btn-2" type="button" class="insert-btn" onClick="update_func(this)">신청</button></td></tr>`;
+    var insert_course3 =
+        `<tr id='3'>
+                <td class="enroll_content">21003490</td>
+                <td class="enroll_content">웹프로그래밍첫걸음</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">최자령</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">월 10:00-12:50</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="insert-btn-3" type="button" class="insert-btn" onClick="update_func(this)">신청</button></td></tr>`;
+    var insert_course4 =
+        `<tr id='4'>
+                <td class="enroll_content">21003758</td>
+                <td class="enroll_content">시스템종합설계</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">박숙영</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">화목 10:00-12:50</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="insert-btn-4" type="button" class="insert-btn" onClick="update_func(this)">신청</button></td></tr>`;
+    var insert_course5 =
+        `<tr id='5'>
+                <td class="enroll_content">21002904</td>
+                <td class="enroll_content">데이터사이언스개론</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">박동철</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">화목 16:30-17:45</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="insert-btn-5" type="button" class="insert-btn" onClick="update_func(this)">신청</button></td></tr>`;
+    var insert_course6 =
+        `<tr id='6'>
+                <td class="enroll_content">21000550</td>
+                <td class="enroll_content">인공지능</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content">채희준</td>
+                <td class="enroll_content">3</td>
+                <td class="enroll_content">화목 13:30-14:45</td>
+                <td class="enroll_content">2022</td>
+                <td class="enroll_content">1</td>
+                <td class="enroll_content"><button id="insert-btn-6" type="button" class="insert-btn" onClick="update_func(this)">신청</button></td></tr>`;
+
+
+    if ( sessionStorage.getItem('num')) {
+        var n = sessionStorage.getItem('num')
+        document.getElementById("total_count").innerHTML = n;
+        document.getElementById("total_credit").innerHTML = n*3;
+    } else {
+        var n = 0;
+    }
+
+    function update_func(course) {
+        if (n > 4) {
+            alert('수강가능학점을 초과했습니다.');
+        } else {
+            // 수강신청내역에는 추가하고 
+            var parent = document.querySelector('#course_table tbody');
+            var num = course.id.slice(-1);
+            var str = 'course' + num
+            document.getElementById("enroll_table_body").innerHTML += eval(str);
+
+            // 개설과목조회에서는 해당 과목 지움
+            parent.removeChild(course.parentElement.parentElement);
+            n++;
+
+            store_enroll(course);
+
+            // 신청학점 업데이트
+            document.getElementById("total_count").innerHTML = n;
+            document.getElementById("total_credit").innerHTML = n*3;
+        }
+    }
+
+    function delete_func(course) {
+        // 선택한 과목 수강신청내역에서 삭제
+        var parent = document.querySelector('#enroll_table tbody');
+        parent.removeChild(course.parentElement.parentElement);
+        // 선택한 과목을 다시 개설과목조회 테이블에 넣어줌
+        var num = course.id.slice(-1);
+        var str = 'insert_course' + num
+        document.getElementById("course_table_body").innerHTML += eval(str);
+        n--;
+  
+        store_enroll(course);
+
+        // 신청학점 업데이트
+        if(n < 0) {
+            n = 0
+        }
+        document.getElementById("total_count").innerHTML = n;
+        document.getElementById("total_credit").innerHTML = n*3;
+    }
+
+    function store_enroll(course) {
+        var parent = document.querySelector('#enroll_table tbody');
+        var spare = document.querySelector('#course_table tbody');
+        var rows = parent.getElementsByTagName("tr");
+        
+        for( var r=0; r<rows.length; r++ ){
+            
+        }
+        sessionStorage.setItem('course', parent.innerHTML);
+        sessionStorage.setItem('spare_course', spare.innerHTML);
+        sessionStorage.setItem('num', n);
+        //console.log(sessionStorage.getItem('course'));
+        
+    }
+</script>
+
+
+<!-- top.html 위한 js -->
+<script>
+    var session_id = sessionStorage.getItem("id");
+
+    var log;
+    if (session_id == null)
+        log = "<a href=login.html>로그인</a>";
+    else log = "<a href=logout.html>로그아웃</a>";
+    document.getElementById("log").innerHTML = log;
+
+    var name;
+    if (sessionStorage.getItem("name")) {
+        document.getElementById("input_user_name").innerHTML = name;
+    } else {
+        name = prompt("이용자님의 이름은 무엇인가요?");
+        sessionStorage.setItem("name", name);
+        document.getElementById("input_user_name").innerHTML = name;
+    }
+</script>
+
+</html>

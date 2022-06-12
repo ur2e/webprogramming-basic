@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>숙명수강신청시스템</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div align="center" class="center-box">
+        <div class="content-box" style="width: 400px">
+            <img class="sm-logo" src="./image/sm-logo.png">
+            <hr style="width: 100%;">
+            <h3 style="margin-bottom: 20px; color: #252f77; font-size: 26px;"> 수강신청 사이트 로그인 </h3>
+            <form action="{url}" method="post">
+                <div align="center" class="outer-box">
+                    <div>
+                        <input class="login-box" type="text" id="id" name="input_id" placeholder="초기 아이디 1">
+                        <br>
+                        <input class="login-box" type="password" id="pwd" name="input_pwd" placeholder="초기 비밀번호 1">
+                    </div>
+    
+                    <div>
+                        <input id="login-btn" class="login-btn" type="button" value="로그인">
+                    </div>
+                </div>
+            </form>
+            <div class="bottom-msg" align=center style="margin-top: 10px; margin-bottom: 20px; color: grey; font-size: 11px;">
+                초기 비밀번호 : 대문자 SM + 생년월일yymmdd+! (예: SMyymmdd!)
+            </div>
+            <br>
+            <br>
+
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const login = document.getElementById('login-btn');
+    var origin_pwd; 
+    
+    // 처음 로그인 or 비밀번호 변경한 적 없으면 기본 비밀번호는 1
+    if ( sessionStorage.getItem("password") ) {
+        origin_pwd = sessionStorage.getItem("password");
+    } else {
+        origin_pwd = '1';
+    }
+
+    // 로그인버튼 클릭하면 id랑 password 받아오기
+    login.addEventListener('click', () => {
+        const id = document.getElementById('id').value;
+        const password = document.getElementById('pwd').value;
+
+        if (id == '1') {
+            console.log("origin", origin_pwd, "now", password);
+            if (password == origin_pwd) {
+                alert('로그인 성공\n');
+                sessionStorage.setItem('id', id);
+                console.log(sessionStorage.getItem("id"));
+                sessionStorage.setItem("password", password);
+                console.log("pwd = ", sessionStorage.getItem("password"));
+                location.href = "main.html";
+            }
+            else {
+                alert('초기 비밀번호는 1로 설정되어있습니다.');
+            }
+        }
+        else {
+            alert('존재하지 않는 계정입니다.');
+        }
+    })
+</script>
+    
+</html>

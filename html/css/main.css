@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    background-color: #f3f3f3;
+    align-items: center;
+    align-content: center;
+}
+.outer-box {
+    margin-top: 70px;
+    padding-left: 2px;
+}
+.top-box {
+    background-color: #dddddd;
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+ 
+.content-box {
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 7px;
+}
+
+.content-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: -4px;
+
+}
+
+.content-box hr {
+    background-color: #487bb9;
+    height: 1px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(197, 197, 197);
+    font-size: 14px;
+  } 
+
+
+.student-table .student-title {
+    text-align: right;
+    margin-left: 10px;
+    width: 140px;
+}
+
+.student-table .student-content {
+    background-color: #eff7fb;
+    border: 1px solid #b3b3b3;
+    width: 130px;
+    text-align: right;
+    padding-right: 7px;
+}
+
+.enroll_table {
+    margin-bottom: 10px;
+}
+
+.enroll_table, tr, td {
+    border-collapse : collapse;
+}
+
+.enroll_table .enroll_h {
+    border: 1px solid hsl(0, 0%, 71%);
+    background-color:#ececec;
+    padding-left: 5px;
+}
+
+.enroll_content {
+    border: 1px solid hsl(0, 0%, 71%);   
+    padding-left: 5px; 
+}
+.enroll_record:hover { background-color: rgba(194, 233, 255, 0.5);}
+
+
+/* update.jsp*/
+.outer {
+    text-align: center;
+}
+
+.update-box {
+    padding-top: 20px;
+    background-color: white;
+    width: 70%;
+    display: inline-block;
+}
+
+.update-box span{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+
+.update-box hr{
+    background-color: #487bb9;
+    height: 3px;
+}
+
+.update-table, tr, td {
+    border-collapse : collapse;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.update-table .update-id {
+    margin-left: 5px;
+}
+
+.update-table .update-pwd {
+    margin-left: 5px;
+}
+
+.update-table .update-title {
+    text-align: center;
+    font-weight: bold;
+    background-color: #f1f1f6;
+}
+
+.update-table .update-submit {
+    border: 2px solid black;  
+}
+
+.update-btn {
+    border: 1px solid #487bb9;
+    color: white;
+    background-color: #487bb9;
+    padding: 5px;
+    height: 30px;
+}
+
+.update-btn:hover {
+    background-color: white;
+    color: #487bb9;
+}
+
+.cancel-btn {
+    border: 1px solid #a0a9b4;
+    color: white;
+    background-color: #a0a9b4;
+    padding: 5px;
+    height: 30px;
+    width: 40px;
+}
+
+.cancel-btn:hover {
+    background-color: #a0a9b4cb;
+}

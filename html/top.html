@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>숙명수강신청시스템</title>
+  <link rel="stylesheet" href="./css/top.css">
+</head>
+
+<body>
+      <div style="display:flex"><img class="top-img" src="./image/top-logo.JPG"> 
+          <h4 align="left"><a class="back-main" href=main.html><span class="user-name" style="color:white; font-size: 18px;">숙명수강신청시스템</span></a></h4></div>
+      <nav>
+        <span id="input_user_name" class="user-name" style="color:white"></span><span>님 접속을 환영합니다.</span> <span> | </span>
+        <a href="final_enroll.html"><span>수강신청결과조회</span></a> <span> | </span>
+        <a href="update.html"><span>비밀번호변경</span></a> <span> | </span>
+        <span id="log"></span>
+      </nav>
+</body>
+
+<script>
+  var session_id = '<%=(String)session.getAttribute("id")%>';
+  var log;
+  if (session_id == null)
+    log = "<a href=login.html>로그인</a>";
+  else log = "<a href=logout.html>로그아웃</a>";
+  document.getElementById("log").innerHTML=log;
+
+  var name;
+  if (name == 'null') {
+  name = prompt("이용자님의 이름은 무엇인가요?");
+  document.getElementById("input_user_name").innerHTML=name;
+  } else {
+    document.getElementById("input_user_name").innerHTML=name;
+  } 
+</script>
+
+</html>
